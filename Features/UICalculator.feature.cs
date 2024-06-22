@@ -75,11 +75,11 @@ namespace CucumberProjectYWAM.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("basic")]
+        [NUnit.Framework.CategoryAttribute("ADD")]
         public virtual void AddTwoNumbers()
         {
             string[] tagsOfScenario = new string[] {
-                    "basic"};
+                    "ADD"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
@@ -123,11 +123,11 @@ namespace CucumberProjectYWAM.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Subtract two numbers")]
-        [NUnit.Framework.CategoryAttribute("basic")]
+        [NUnit.Framework.CategoryAttribute("Subtract")]
         public virtual void SubtractTwoNumbers()
         {
             string[] tagsOfScenario = new string[] {
-                    "basic"};
+                    "Subtract"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Subtract two numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 14
@@ -171,11 +171,11 @@ namespace CucumberProjectYWAM.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Multiply two numbers")]
-        [NUnit.Framework.CategoryAttribute("basic")]
+        [NUnit.Framework.CategoryAttribute("Multiply")]
         public virtual void MultiplyTwoNumbers()
         {
             string[] tagsOfScenario = new string[] {
-                    "basic"};
+                    "Multiply"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Multiply two numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 22
@@ -219,11 +219,11 @@ namespace CucumberProjectYWAM.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Divide two numbers")]
-        [NUnit.Framework.CategoryAttribute("basic")]
+        [NUnit.Framework.CategoryAttribute("Divide")]
         public virtual void DivideTwoNumbers()
         {
             string[] tagsOfScenario = new string[] {
-                    "basic"};
+                    "Divide"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Divide two numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 30
@@ -267,11 +267,11 @@ namespace CucumberProjectYWAM.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Clear the display")]
-        [NUnit.Framework.CategoryAttribute("basic")]
+        [NUnit.Framework.CategoryAttribute("Clear")]
         public virtual void ClearTheDisplay()
         {
             string[] tagsOfScenario = new string[] {
-                    "basic"};
+                    "Clear"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Clear the display", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 38
@@ -301,7 +301,69 @@ namespace CucumberProjectYWAM.Features
     testRunner.When("I press \"C\" on the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 41
-    testRunner.Then("the result should be \"0\" on the display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("the result should be \"\" on the display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Perform various calculations")]
+        [NUnit.Framework.CategoryAttribute("Parameterized")]
+        [NUnit.Framework.TestCaseAttribute("5", "+", "3", "8", null)]
+        [NUnit.Framework.TestCaseAttribute("9", "-", "4", "5", null)]
+        [NUnit.Framework.TestCaseAttribute("6", "*", "7", "42", null)]
+        [NUnit.Framework.TestCaseAttribute("8", "/", "2", "4", null)]
+        [NUnit.Framework.TestCaseAttribute("10", "-", "2", "8", null)]
+        public virtual void PerformVariousCalculations(string first_Number, string @operator, string second_Number, string result, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Parameterized"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("first_number", first_Number);
+            argumentsOfScenario.Add("operator", @operator);
+            argumentsOfScenario.Add("second_number", second_Number);
+            argumentsOfScenario.Add("result", result);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform various calculations", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 44
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 45
+    testRunner.Given(string.Format("I press \"{0}\" on the calculator", first_Number), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 46
+    testRunner.And(string.Format("I press \"{0}\" on the calculator", @operator), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 47
+    testRunner.And(string.Format("I press \"{0}\" on the calculator", second_Number), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 48
+    testRunner.When("I press \"=\" on the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 49
+    testRunner.Then(string.Format("the result should be \"{0}\" on the display", result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -16,6 +16,7 @@ namespace Calculator.Specs
         public void Setup()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("https://localhost:44364/Home/Calculator");
             resultDisplay = driver.FindElement(By.Id("result"));
         }
@@ -25,28 +26,31 @@ namespace Calculator.Specs
         {
             // Wait for 10 seconds before closing the browser
             Thread.Sleep(5000);
-
             driver.Quit();
         }
 
         [Given(@"I press ""(.*)"" on the calculator")]
         public void GivenIPressOnTheCalculator(string button)
         {
-            var buttonElement = driver.FindElement(By.XPath($"//button[text()='{button}']"));
-            buttonElement.Click();
+            PressButton(button);
         }
 
         [When(@"I press ""(.*)"" on the calculator")]
         public void WhenIPressOnTheCalculator(string button)
         {
-            var buttonElement = driver.FindElement(By.XPath($"//button[text()='{button}']"));
-            buttonElement.Click();
+            PressButton(button);
         }
 
         [Then(@"the result should be ""(.*)"" on the display")]
         public void ThenTheResultShouldBeOnTheDisplay(string expectedResult)
         {
             Assert.AreEqual(expectedResult, resultDisplay.GetAttribute("value"));
+        }
+
+        private void PressButton(string button)
+        {
+            var buttonElement = driver.FindElement(By.XPath($"//button[text()='{button}']"));
+            buttonElement.Click();
         }
     }
 }
